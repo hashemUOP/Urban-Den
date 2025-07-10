@@ -6,6 +6,7 @@ import Home from './pages/home';
 export default function App() {
   const [fontsLoaded] = useFonts({
     Playfair: require('../Urban_Den_App/assets/fonts/PlayfairDisplay-VariableFont_wght.ttf'),
+    Poppins: require('../Urban_Den_App/assets/fonts/Poppins-Regular.ttf')
   });
 
   if (!fontsLoaded) {

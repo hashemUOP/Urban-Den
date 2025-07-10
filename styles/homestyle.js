@@ -8,7 +8,7 @@ export default StyleSheet.create({
         marginTop:30,
         backgroundColor:"white",
         width:screemWidth,
-        height:screenHeight*0.09,
+        height:80,
         justifyContent:"center"
     },
     text1:{
@@ -55,7 +55,7 @@ export default StyleSheet.create({
     },
     searchBar:{
         width:screemWidth -16,
-        height:screenHeight*0.06,
+        height:40,
         backgroundColor:"#f9f9f9",
         borderColor:"#585858",
         borderWidth:0.5,
@@ -64,5 +64,55 @@ export default StyleSheet.create({
         borderRadius:5,
         flexDirection:"row",
         alignItems:'center',
+    },
+    menubar:{
+        height:40,
+        width:screemWidth -16,
+        height:45,
+        borderColor:"#585858",
+        borderWidth:0.5,
+        marginRight:5,
+        marginLeft:10,
+        borderRadius:5,
+        flexDirection:"row",
+        alignItems:'center',
+        marginTop:10,
+        justifyContent:"space-between",
+        alignContent:"space-between",
+    },
+    menu_item:{
+        width:60,
+        height:35,
+        borderRadius:7,
+        alignItems:"center",
+        justifyContent:"center",
+    },
+    adImage: {
+    width: screemWidth - 16,
+    height: 140,
+    justifyContent: 'flex-end', // makes sure content flows from bottom
+    padding: 10,
+    marginRight:5,
+    marginLeft:10,
+    borderRadius:5,
+    marginTop:10,
+    },
+    overlayContent: {
+    borderRadius: 5,
+    padding: 8,
+    },
+    adButton:{
+        width:90,
+        height:30,
+        borderRadius:5,
+        backgroundColor:"white",
+        marginTop:5,
+        justifyContent:"center"
+    },
+    adButtonText:{
+        color:"black",
+        alignSelf:"center",
+        justifySelf:"center",
+        fontSize:12
     }
 });

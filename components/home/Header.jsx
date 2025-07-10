@@ -3,6 +3,7 @@ import styles from '../../styles/homestyle';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Entypo from '@expo/vector-icons/Entypo';
 import React from 'react'
+import CustomText from '../customText';
 
 export default function Header() {
     return (
@@ -14,8 +15,8 @@ export default function Header() {
                         style={styles.image}
                     />
                     <View style={styles.col1}>
-                        <Text style={styles.text1}>Hi UsersFirstname! 👋</Text>
-                        <Text style={styles.text2}>Full USername Here</Text>
+                        <CustomText style={styles.text1}>Hi UsersFirstname! 👋</CustomText>
+                        <CustomText style={styles.text2}>Full USername Here</CustomText>
                     </View>    
                 </View>
                 <View style={{flexDirection:"row"}}>

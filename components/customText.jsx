@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 
-export default function CustomText({children}) {
+export default function CustomText({ children, style }) {
   return (
-    <Text style={styles.text}>
+    <Text style={[styles.text, style]}>
       {children}
     </Text>
   );
@@ -11,7 +11,7 @@ export default function CustomText({children}) {
 
 const styles = StyleSheet.create({
   text: {
-    fontFamily: 'Playfair',
-    color: '#222',          //default color
+    fontFamily: 'Poppins',
+    color: '#222',
   },
 });
