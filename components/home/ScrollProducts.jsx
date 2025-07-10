@@ -1,14 +1,26 @@
 import { View, Text,ScrollView } from 'react-native';
 import React from 'react';
 import styles from "../../styles/homestyle";
+import { FlatList } from 'react-native';
+import CustomText from '../customText';
+
+
 export default function ScrollProducts() {
+  const data = Array.from({ length: 50 }, (_, i) => `Item ${i + 1}`);
+
+  const renderItem = ({ item }) => (
+    <View style={styles.itemBox}>
+      <Text style={styles.itemText}>{item}</Text>
+    </View>
+  );
+
   return (
-    <ScrollView contentContainerStyle={styles.scrollContainer}>
-      {Array.from({ length: 20 }, (_, i) => (
-        <View key={i} style={styles.box}>
-          <Text style={styles.text}>Item {i + 1}</Text>
-        </View>
-      ))}
-    </ScrollView>
-  )
+    <FlatList
+      data={data}
+      keyExtractor={(item, index) => index.toString()}
+      numColumns={2}
+      renderItem={renderItem}
+      contentContainerStyle={styles.scrollContainer}
+    />
+  );
 }

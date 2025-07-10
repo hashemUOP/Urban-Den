@@ -11,8 +11,8 @@ function Home(){
         <View>
             <Header/>
             <SearchBar/>
-            <MenuBar/>
             <AdSection/>
+            <MenuBar/>
             <ScrollProducts/>
         </View>
     );

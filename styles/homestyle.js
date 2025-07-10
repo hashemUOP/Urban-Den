@@ -114,5 +114,25 @@ export default StyleSheet.create({
         alignSelf:"center",
         justifySelf:"center",
         fontSize:12
-    }
+    },
+    scrollContainer: {
+    padding: 8,
+  },
+  itemBox: {
+    flex: 1,
+    backgroundColor: '#cce5ff',
+    margin: 8,
+    height: 100,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 3, // for Android shadow
+    shadowColor: '#000', // iOS shadow
+    shadowOpacity: 0.2,
+    shadowOffset: { width: 0, height: 2 },
+  },
+  itemText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
 });
