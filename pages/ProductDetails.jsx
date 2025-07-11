@@ -1,10 +1,11 @@
-import { View, Text } from 'react-native'
+import { View, Text, ScrollView } from 'react-native'
 import React from 'react'
+import Images from '../components/product_details/Images';
 
-export default function ProductDetails() {
+export default function ProductDetails({navigation}) {
   return (
-    <View>
-      <Text>ProductDetails</Text>
-    </View>
+    <ScrollView>
+        <Images navigation={navigation}/>
+    </ScrollView>
   )
 }
