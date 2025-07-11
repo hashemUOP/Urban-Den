@@ -1,7 +1,6 @@
 import { View, Text,SafeAreaView,Image } from 'react-native'
 import styles from '../../styles/homestyle';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import Entypo from '@expo/vector-icons/Entypo';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import React from 'react'
 import CustomText from '../customText';
 
@@ -21,11 +20,8 @@ export default function Header() {
                 </View>
                 <View style={{flexDirection:"row"}}>
                     <View style={styles.customButton}>
-                        <MaterialCommunityIcons name="cart-outline" size={18} color="#585858" />
+                        <FontAwesome6 name="bell" size={18} color="#585858" />
                     </View>
-                    <View style={styles.customButton} > 
-                        <Entypo name="menu" size={18} color="#585858" />
-                    </View>    
                 </View>
                 
             </View>

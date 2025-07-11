@@ -36,14 +36,14 @@ export default StyleSheet.create({
     },
     customButton: {
         borderWidth: 0.5,
-        borderColor: 'grey',
+        borderColor: 'white',
         width: 35,
         height: 35,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 5,
         backgroundColor: 'white',
-        marginRight:5
+        marginRight:7
     },
     image:{
         width:40,
@@ -117,22 +117,78 @@ export default StyleSheet.create({
     },
     scrollContainer: {
     padding: 8,
+    paddingBottom: 70 
   },
-  itemBox: {
+  card: {
     flex: 1,
     backgroundColor: '#cce5ff',
     margin: 8,
-    height: 100,
+    height: 300,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    elevation: 3, // for Android shadow
-    shadowColor: '#000', // iOS shadow
+    elevation: 3, // shadow
     shadowOpacity: 0.2,
     shadowOffset: { width: 0, height: 2 },
   },
-  itemText: {
-    fontSize: 16,
-    fontWeight: 'bold',
+  cardImage:{
+    height:"100%",
+    width:"100%",
+    objectFit:"cover"
   },
+  cardCol:{
+    position:"absolute",
+    top:8,
+  },
+  cardRow:{
+    width:"100%",
+    flexDirection:'row',
+    justifyContent:'space-between'
+  },
+  overlayRow: {
+  position: 'absolute',
+  width: '100%',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  paddingHorizontal: 7,
+},
+overlayBottom: {
+  position: 'absolute',
+  bottom: 8,
+  left: 7,
+  right: 7,
+  backgroundColor: 'rgba(255, 255, 255, 0.9)',
+  padding: 5,
+  borderRadius: 8,
+},
+badge: {
+  height: 30,
+  width: 100,
+  backgroundColor: 'black',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: 15,
+},
+heart: {
+  height: 33,
+  width: 33,
+  backgroundColor: 'white',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: 15,
+  paddingBottom: 3,
+},
+  footerContainer:{
+    width:screemWidth,
+    height:50,
+    backgroundColor:"orange",
+    height: 60,
+    backgroundColor: 'orange',
+    position: 'absolute', 
+    bottom: 0, 
+    left: 0, 
+    right: 0, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+  }
 });

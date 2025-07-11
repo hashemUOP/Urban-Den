@@ -5,15 +5,16 @@ import SearchBar from '../components/home/SearchBar';
 import MenuBar from '../components/home/MenuBar';
 import AdSection from '../components/home/AdSection';
 import ScrollProducts from '../components/home/ScrollProducts';
+import Footer from '../components/home/Footer';
 
 function Home(){
     return(
-        <View>
+        <View style={{ flex: 1 }}>
             <Header/>
             <SearchBar/>
-            <AdSection/>
             <MenuBar/>
             <ScrollProducts/>
+            <Footer/>
         </View>
     );
 }

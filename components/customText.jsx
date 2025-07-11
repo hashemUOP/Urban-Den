@@ -1,9 +1,10 @@
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 
-export default function CustomText({ children, style }) {
+//style param passes style , ...props passes attributes of component like numberOfLines={2} or ellipsizeMode="tail"
+export default function CustomText({ children, style, ...props }) {
   return (
-    <Text style={[styles.text, style]}>
+    <Text style={[styles.text, style]} {...props}>
       {children}
     </Text>
   );
