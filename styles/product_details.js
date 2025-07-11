@@ -34,6 +34,11 @@ export default styles = StyleSheet.create(
             borderRadius: 20, 
             alignItems: 'center', 
             justifyContent: 'center' 
+        },
+        titleText:{
+            paddingHorizontal:15,
+            marginTop:30,
+            gap:7
         }
     }
 );

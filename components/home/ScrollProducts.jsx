@@ -40,7 +40,6 @@ function ProductCard({ imgSrc, ProductDesc, ProductMaterial, ProductPriceDec, Pr
           <TouchableOpacity style={styles.badge}>
             <CustomText style={{ fontSize: 11, color: "white" }}>🔥 Hot Product</CustomText>
           </TouchableOpacity>
-
           <TouchableOpacity style={styles.heart}>
             <EvilIcons name="heart" size={28} color="black" />
           </TouchableOpacity>
