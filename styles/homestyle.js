@@ -181,14 +181,24 @@ heart: {
   footerContainer:{
     width:screemWidth,
     height:50,
-    backgroundColor:"orange",
     height: 60,
-    backgroundColor: 'orange',
+    backgroundColor: 'white',
     position: 'absolute', 
     bottom: 0, 
     left: 0, 
     right: 0, 
     justifyContent: 'center', 
     alignItems: 'center', 
+    flexDirection:"row",
+    justifyContent:"space-around"
+  },
+  footerItem:{
+    width:"20%",
+    height:"98%",
+    justifyContent:"center"
+  },
+  iconCol:{
+    justifyContent:"center",
+    alignItems:"center"
   }
 });
