@@ -7,13 +7,13 @@ import AdSection from '../components/home/AdSection';
 import ScrollProducts from '../components/home/ScrollProducts';
 import Footer from '../components/home/Footer';
 
-function Home(){
+function Home({navigation}){
     return(
         <View style={{ flex: 1 }}>
             <Header/>
             <SearchBar/>
             <MenuBar/>
-            <ScrollProducts/>
+            <ScrollProducts navigation={navigation}/>
             <Footer/>
         </View>
     );
