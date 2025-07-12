@@ -4,7 +4,7 @@ import CustomText from '../customText';
 import styles from '../../styles/product_details';
 import Stars from './Stars';
 
-export default function Desc({productTitle,productCat,numOfStars,numOfReviews}) {
+export default function Desc({productTitle,productCat,numOfStars,numOfReviews,productDetails}) {
   return (
     <View>
         <View style={styles.titleText}>
@@ -14,8 +14,10 @@ export default function Desc({productTitle,productCat,numOfStars,numOfReviews}) 
                 <Stars numOfStars={numOfStars}/>
                 <CustomText style={{fontSize:10}}>({numOfReviews} review)</CustomText>
             </View>
-            <CustomText style={{fontWeight:"700",marginTop:10,fontSize:17}}>Detail Product</CustomText>
-            <CustomText></CustomText>
+            <View style={{gap:-20}}>
+                <CustomText style={{fontWeight:"700",marginTop:10,fontSize:17}}>Detail Product</CustomText>
+                <CustomText style={{}}>{productDetails}</CustomText>    
+            </View>
         </View>
     </View>
   )

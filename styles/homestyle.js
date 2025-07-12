@@ -65,6 +65,13 @@ export default StyleSheet.create({
         flexDirection:"row",
         alignItems:'center',
     },
+    divider: {
+      width: 1,
+      height: 20,
+      backgroundColor: 'black',
+      marginRight: 8,
+      alignSelf: 'center'
+    },
     menubar:{
         height:40,
         width:screemWidth -16,

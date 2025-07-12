@@ -6,6 +6,7 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import EvilIcons from '@expo/vector-icons/EvilIcons';
 import homeStyles from '../../styles/homestyle';
 import CustomText from '../customText';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeight = Dimensions.get('window').height;
@@ -27,8 +28,13 @@ export default function Images({navigation}) {
             <AntDesign name="left" size={18} color="black" />
             </View>    
         </Pressable>
-            <View style={[styles.iconContainer,{paddingBottom:2}]}>
-                <EvilIcons name="heart" size={24} color="black" />
+            <View style={{flexDirection:"row"}}>
+              <View style={[styles.iconContainer,{paddingBottom:2}]}>
+                  <Ionicons name="share-social-outline" size={20} color="black" style={{paddingRight:3,paddingTop:3}}/>
+              </View>
+              <View style={[styles.iconContainer,{paddingBottom:2}]}>
+                  <EvilIcons name="heart" size={24} color="black" />
+              </View>  
             </View>
       </View>
 

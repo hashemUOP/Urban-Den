@@ -1,8 +1,6 @@
 import { View, Pressable } from 'react-native';
 import React, { useState } from 'react';
 import styles from "../../styles/homestyle";
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import EvilIcons from '@expo/vector-icons/EvilIcons';
 import CustomText from '../../components/customText';
 import Feather from '@expo/vector-icons/Feather';
 

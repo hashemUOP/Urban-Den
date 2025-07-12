@@ -39,6 +39,32 @@ export default styles = StyleSheet.create(
             paddingHorizontal:15,
             marginTop:30,
             gap:7
+        },
+        footerContainer:{
+            flexDirection:"row",
+            width:screenWidth,
+            height:70,
+            backgroundColor:"rgba(214, 214, 214, 0.8)",
+            alignItems:"center",
+            justifyContent:"space-between"
+        },
+        iconBox:{
+            height:45,
+            width:45,
+            borderRadius:25,
+            backgroundColor:'black',
+            justifyContent:'center',
+            alignItems:"center",
+            marginRight:8,
+        },
+        buyBox:{
+            backgroundColor:"#ab7e42",
+            height:45,
+            width:70,
+            justifyContent:"center",
+            alignItems:"center",
+            borderRadius:15,
+            marginRight:12,
         }
     }
 );
