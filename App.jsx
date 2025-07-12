@@ -8,6 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './pages/home';
 import ProductDetails from './pages/ProductDetails';
 import Search from './pages/Search';
+import GetStarted from './pages/GetStarted';
 
 const Stack = createNativeStackNavigator();
 //this component is the entrance to the app and it is run in index.js
@@ -28,13 +29,18 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+
+        //if user isnt logged in make GetStarted the initial route else make it Home
+
+        initialRouteName="GetStarted"
+
         screenOptions={{ headerShown: false }}
       >
         {/* defining screens here to be navigated */}
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="ProductDetails" component={ProductDetails} />
         <Stack.Screen name="Search" component={Search}/>
+        <Stack.Screen name="GetStarted" component={GetStarted}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
