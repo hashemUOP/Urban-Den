@@ -128,7 +128,6 @@ export default StyleSheet.create({
   },
   card: {
     flex: 1,
-    backgroundColor: '#cce5ff',
     margin: 8,
     height: 300,
     borderRadius: 10,

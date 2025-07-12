@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 {/* importing screens to navigate */}
 import Home from './pages/home';
 import ProductDetails from './pages/ProductDetails';
+import Search from './pages/Search';
 
 const Stack = createNativeStackNavigator();
 //this component is the entrance to the app and it is run in index.js
@@ -33,6 +34,7 @@ export default function App() {
         {/* defining screens here to be navigated */}
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="ProductDetails" component={ProductDetails} />
+        <Stack.Screen name="Search" component={Search}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -3,6 +3,8 @@ import React from 'react'
 import Images from '../components/product_details/Images';
 import Desc from '../components/product_details/Desc';
 import ProductFooter from '../components/product_details/ProductFooter';
+import Accordion from '../components/Accordion';
+import CustomText from '../components/customText';
 export default function ProductDetails({navigation}) {
   return (
     <View style={{ flex: 1 }}>
@@ -14,13 +16,14 @@ export default function ProductDetails({navigation}) {
             numOfStars={4.5}
             numOfReviews={345}
             productDetails={
-              `
-  The Chiara Rattan Dining Chair with Armrests is a perfect choice for any space. With its charming vintage style, this chair is made of ash wood, it has a rattan seat and back woven.
-  Its structure, backrest and armrests are made of robust natural ash wood that combines perfectly with its rattan-finished seat.
+              `The Chiara Rattan Dining Chair with Armrests is a perfect choice for any space. With its charming vintage style, this chair is made of ash wood, it has a rattan seat and back woven.Its structure, backrest and armrests are made of robust natural ash wood that combines perfectly with its rattan-finished seat.
               `
             }
           />
-          
+          <Accordion />
+          <Accordion />
+          <Accordion />
+          <CustomText style={{marginLeft:12,fontWeight:'700',marginTop:10}}>Similar products</CustomText>  
       </ScrollView>
     <ProductFooter productPriceDec={349} productPriceFloat={'.00'}/>
     </View>

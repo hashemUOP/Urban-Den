@@ -5,7 +5,7 @@ import CustomText from '../customText';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons';
 
-export default function searchBar() {
+export default function searchBar({navigation}) {
   return (
     <View style={styles.searchBar}>
       <SimpleLineIcons name="magnifier" size={18} color="black" style={{marginLeft:"8"}}/>

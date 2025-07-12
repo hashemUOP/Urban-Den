@@ -11,7 +11,7 @@ function Home({navigation}){
     return(
         <View style={{ flex: 1 }}>
             <Header/>
-            <SearchBar/>
+            <SearchBar navigation={{navigation}}/>
             <MenuBar/>
             <ScrollProducts navigation={navigation}/>
             <Footer/>

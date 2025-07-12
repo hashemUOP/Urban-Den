@@ -6,6 +6,8 @@ import CustomText from '../customText';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Octicons from '@expo/vector-icons/Octicons';
 import EvilIcons from '@expo/vector-icons/EvilIcons';
+
+
 export default function ScrollProducts({navigation}) {
   const data = Array.from({ length: 50 }, (_, i) => `Item ${i + 1}`);
 
