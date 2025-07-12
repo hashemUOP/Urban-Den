@@ -6,12 +6,13 @@ import CustomText from '../customText';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Octicons from '@expo/vector-icons/Octicons';
 import EvilIcons from '@expo/vector-icons/EvilIcons';
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 
 
-export default function ScrollProducts({navigation}) {
+export default function ScrollProducts({navigation,isForSearch}) {
   const data = Array.from({ length: 50 }, (_, i) => `Item ${i + 1}`);
 
-  const renderItem = ({ item }) => (
+  const renderItem = ({ item,isForSearch }) => (
     <ProductCard 
       imgSrc={require('../../assets/images/home/SillaChiaraArmsND.png')}
       ProductDesc={'Deluxe Adjustable Poolside Lounge Chairwith Cushions and UV Protection'}
@@ -23,12 +24,23 @@ export default function ScrollProducts({navigation}) {
   );
 
   return (
+    <>
+    {
+      isForSearch && 
+      <View style={{flexDirection:"row",justifyContent:"space-between"}}>
+        <CustomText style={{marginLeft:18,fontWeight:'700',fontSize:18}}>150 result</CustomText>
+        <MaterialIcons name="tune" size={24} color="black" style={{marginRight:12}}/>  
+      </View>    
+    }
     <FlatList
       data={data}
       keyExtractor={(item, index) => index.toString()}
       renderItem={renderItem}
       contentContainerStyle={styles.scrollContainer}
     />
+    
+    </>
+    
   );
 }
 
