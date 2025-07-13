@@ -8,7 +8,7 @@ const { width: screenWidth, height: screenHeight } = Dimensions.get('screen');
 
 export default function GetStarted({ navigation }) {
   return (
-    <View style={styles.container}>
+    <View style={styles.containerStarted}>
       <Image
         source={require('../assets/images/get_started/denys-striyeshyn-wJ7yGwz2-00-unsplash (1).jpg')}
         style={styles.image}
@@ -54,7 +54,7 @@ export default function GetStarted({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  containerStarted: {
     flex: 1,
     position: 'relative',
   },
