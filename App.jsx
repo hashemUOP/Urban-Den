@@ -3,6 +3,7 @@ import { View, ActivityIndicator } from 'react-native';
 import { useFonts } from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 {/* importing screens to navigate */}
 import Home from './pages/home';
@@ -11,7 +12,13 @@ import Search from './pages/Search';
 import GetStarted from './pages/GetStarted';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Favorite from './pages/Favorite';
+import Cart from './pages/Cart';
+import Profile from './pages/Profile';
+import MyNavBar from './pages/MyNavBar';
 
+
+const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 //this component is the entrance to the app and it is run in index.js
 export default function App() {
@@ -45,6 +52,10 @@ export default function App() {
         <Stack.Screen name="GetStarted" component={GetStarted}/>
         <Stack.Screen name="Login" component={Login}/>
         <Stack.Screen name="Register" component={Register}/>
+        <Stack.Screen name="Favorite" component={Favorite}/>
+        <Stack.Screen name="Cart" component={Cart}/>
+        <Stack.Screen name="Profile" component={Profile}/>
+        <Stack.Screen name="MyNavBar" component={MyNavBar} />
       </Stack.Navigator>
     </NavigationContainer>
   );

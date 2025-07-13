@@ -41,7 +41,7 @@ function NumOfProgress({numOfFinishedStages,navigation}){
     }
     function Skip({navigation}){
         return(
-                <Pressable style={{marginLeft:"auto",marginRight:15}} onPress={()=>navigation.navigate("Home")}>
+                <Pressable style={{marginLeft:"auto",marginRight:15}} onPress={()=>navigation.navigate("MyNavBar")}>
                     <CustomText style={{
                         color:"#fefefc",
                         textShadowColor: 'rgba(0, 0, 0, 0.3)',

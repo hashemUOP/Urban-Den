@@ -5,7 +5,6 @@ import SearchBar from '../components/home/SearchBar';
 import MenuBar from '../components/home/MenuBar';
 import AdSection from '../components/home/AdSection';
 import ScrollProducts from '../components/home/ScrollProducts';
-import Footer from '../components/home/Footer';
 
 function Home({navigation}){
     return(
@@ -14,7 +13,6 @@ function Home({navigation}){
             <SearchBar navigation={navigation}/>
             <MenuBar/>
             <ScrollProducts navigation={navigation}/>
-            <Footer/>
         </View>
     );
 }

@@ -24,14 +24,14 @@ export default function GetStarted({ navigation }) {
 
       <View style={styles.buttonsContainer}>
         {/* Frosted glass blur behind the button */}
-        <BlurView intensity={70} tint="dark" style={styles.blurButton}>
+        <View >
           <Pressable
             style={styles.loginButton}
             onPress={() => navigation.navigate('Login')}
           >
             <CustomText style={styles.loginText}>Login</CustomText>
           </Pressable>
-        </BlurView>
+        </View>
 
         <Pressable
           style={styles.getStartedButton}
