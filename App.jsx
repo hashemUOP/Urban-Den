@@ -39,7 +39,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
 
-        //if user isnt logged in make GetStarted the initial route else make it Home
+        //if user isnt logged in make GetStarted the initial route else make it MyNavBar
 
         initialRouteName="GetStarted"
 

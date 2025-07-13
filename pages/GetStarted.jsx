@@ -99,9 +99,10 @@ const styles = StyleSheet.create({
   loginButton: {
     width: screenWidth * 0.8,
     height: 60,
-    backgroundColor: 'rgba(0,0,0,0.3)',
+    backgroundColor: '#9c723aff',
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius:8
   },
   loginText: {
     color: 'white',

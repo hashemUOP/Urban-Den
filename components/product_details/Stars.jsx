@@ -3,7 +3,7 @@ import React from 'react'
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 const color = '#ab7e42';
-export default function Stars({numOfStars}){
+export default function Stars({numOfStars,style}){
     if(numOfStars === 5){
         return(
             <View style={{flexDirection:"row"}}>
@@ -17,11 +17,11 @@ export default function Stars({numOfStars}){
     }else if(numOfStars === 4.5){
         return(
             <View style={{flexDirection:"row"}}>
-                <MaterialCommunityIcons name="star" size={24} color={color} />
-                <MaterialCommunityIcons name="star" size={24} color={color} />
-                <MaterialCommunityIcons name="star" size={24} color={color} />
-                <MaterialCommunityIcons name="star" size={24} color={color} />
-                <MaterialCommunityIcons name="star-half-full" size={24} color={color} />
+                <MaterialCommunityIcons name="star" size={20} color={color} />
+                <MaterialCommunityIcons name="star" size={20} color={color} />
+                <MaterialCommunityIcons name="star" size={20} color={color} />
+                <MaterialCommunityIcons name="star" size={20} color={color} />
+                <MaterialCommunityIcons name="star-half-full" size={20} color={color} />
             </View>
         );
     }else if(numOfStars === 4){
