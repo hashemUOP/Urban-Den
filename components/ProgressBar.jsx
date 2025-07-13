@@ -48,7 +48,12 @@ function NumOfProgress({numOfFinishedStages}){
                 <Empty/>
                 <Empty/>
                 <Pressable style={{marginLeft:"auto",marginRight:15}}>
-                    <CustomText style={{color:"#fefefc"}} >Skip</CustomText>    
+                    <CustomText style={{
+                        color:"#fefefc",
+                        textShadowColor: 'rgba(0, 0, 0, 0.3)',
+                        textShadowOffset: { width: 1, height: 1 },
+                        textShadowRadius: 4,
+                    }} >Skip</CustomText>    
                 </Pressable>
             </View>
         );
@@ -61,7 +66,12 @@ function NumOfProgress({numOfFinishedStages}){
                 <Empty/>
                 <Empty/>
                 <Pressable style={{marginLeft:"auto",marginRight:15}}>
-                    <CustomText style={{color:"#fefefc"}} >Skip</CustomText>    
+                    <CustomText style={{
+                        color:"#fefefc",
+                        textShadowColor: 'rgba(0, 0, 0, 0.3)',
+                        textShadowOffset: { width: 1, height: 1 },
+                        textShadowRadius: 4,
+                    }} >Skip</CustomText>      
                 </Pressable>
             </View>
         );
@@ -74,7 +84,12 @@ function NumOfProgress({numOfFinishedStages}){
                 <Empty/>
                 <Empty/>
                 <Pressable style={{marginLeft:"auto",marginRight:15}}>
-                    <CustomText style={{color:"#fefefc"}} >Skip</CustomText>    
+                    <CustomText style={{
+                        color:"#fefefc",
+                        textShadowColor: 'rgba(0, 0, 0, 0.3)',
+                        textShadowOffset: { width: 1, height: 1 },
+                        textShadowRadius: 4,
+                    }} >Skip</CustomText>      
                 </Pressable>
             </View>
         );
@@ -87,7 +102,12 @@ function NumOfProgress({numOfFinishedStages}){
                 <Filled/>
                 <Empty/>
                 <Pressable style={{marginLeft:"auto",marginRight:15}}>
-                    <CustomText style={{color:"#fefefc"}} >Skip</CustomText>    
+                    <CustomText style={{
+                        color:"#fefefc",
+                        textShadowColor: 'rgba(0, 0, 0, 0.3)',
+                        textShadowOffset: { width: 1, height: 1 },
+                        textShadowRadius: 4,
+                    }} >Skip</CustomText>        
                 </Pressable>
             </View>
         );
@@ -100,7 +120,12 @@ function NumOfProgress({numOfFinishedStages}){
                 <Filled/>
                 <Filled/>
                 <Pressable style={{marginLeft:"auto",marginRight:15}}>
-                    <CustomText style={{color:"#fefefc"}} >Skip</CustomText>    
+                    <CustomText style={{
+                        color:"#fefefc",
+                        textShadowColor: 'rgba(0, 0, 0, 0.3)',
+                        textShadowOffset: { width: 1, height: 1 },
+                        textShadowRadius: 4,
+                    }} >Skip</CustomText>        
                 </Pressable>
             </View>
         );
