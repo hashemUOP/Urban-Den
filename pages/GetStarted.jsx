@@ -14,7 +14,7 @@ export default function GetStarted({ navigation }) {
         style={styles.image}
       />
 
-      <ProgressBar numOfFinishedStages={1} />
+      <ProgressBar numOfFinishedStages={1} navigation={navigation}/>
 
       <CustomText style={styles.title}>Havely</CustomText>
       <CustomText style={styles.titleDesc}>

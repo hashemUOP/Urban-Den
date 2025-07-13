@@ -6,13 +6,13 @@ import CustomText from '../components/customText';
 
 const screenWidth = Dimensions.get('screen').width;
 
-export default function ProgressBar({numOfFinishedStages}) {
+export default function ProgressBar({numOfFinishedStages,navigation}) {
   return (
-        <NumOfProgress numOfFinishedStages={numOfFinishedStages}/>
+        <NumOfProgress numOfFinishedStages={numOfFinishedStages} navigation={navigation}/>
     
   )
 }
-function NumOfProgress({numOfFinishedStages}){
+function NumOfProgress({numOfFinishedStages,navigation}){
     function Empty(){
       return(
             <Progress.Bar
@@ -39,6 +39,18 @@ function NumOfProgress({numOfFinishedStages}){
             />
        ); 
     }
+    function Skip({navigation}){
+        return(
+                <Pressable style={{marginLeft:"auto",marginRight:15}} onPress={()=>navigation.navigate("Home")}>
+                    <CustomText style={{
+                        color:"#fefefc",
+                        textShadowColor: 'rgba(0, 0, 0, 0.3)',
+                        textShadowOffset: { width: 1, height: 1 },
+                        textShadowRadius: 4,
+                    }} >Skip</CustomText>    
+                </Pressable>
+        );
+    }
     if(numOfFinishedStages===1){
         return(
             <View style={styles.progressBox}>
@@ -47,14 +59,7 @@ function NumOfProgress({numOfFinishedStages}){
                 <Empty/>
                 <Empty/>
                 <Empty/>
-                <Pressable style={{marginLeft:"auto",marginRight:15}}>
-                    <CustomText style={{
-                        color:"#fefefc",
-                        textShadowColor: 'rgba(0, 0, 0, 0.3)',
-                        textShadowOffset: { width: 1, height: 1 },
-                        textShadowRadius: 4,
-                    }} >Skip</CustomText>    
-                </Pressable>
+                <Skip navigation={navigation}/>
             </View>
         );
     }else if(numOfFinishedStages===2){
@@ -65,14 +70,7 @@ function NumOfProgress({numOfFinishedStages}){
                 <Empty/>
                 <Empty/>
                 <Empty/>
-                <Pressable style={{marginLeft:"auto",marginRight:15}}>
-                    <CustomText style={{
-                        color:"#fefefc",
-                        textShadowColor: 'rgba(0, 0, 0, 0.3)',
-                        textShadowOffset: { width: 1, height: 1 },
-                        textShadowRadius: 4,
-                    }} >Skip</CustomText>      
-                </Pressable>
+                <Skip navigation={navigation}/>
             </View>
         );
     }else if(numOfFinishedStages===3){
@@ -83,14 +81,7 @@ function NumOfProgress({numOfFinishedStages}){
                 <Filled/>
                 <Empty/>
                 <Empty/>
-                <Pressable style={{marginLeft:"auto",marginRight:15}}>
-                    <CustomText style={{
-                        color:"#fefefc",
-                        textShadowColor: 'rgba(0, 0, 0, 0.3)',
-                        textShadowOffset: { width: 1, height: 1 },
-                        textShadowRadius: 4,
-                    }} >Skip</CustomText>      
-                </Pressable>
+                <Skip navigation={navigation}/>
             </View>
         );
     }else if(numOfFinishedStages===4){
@@ -101,14 +92,7 @@ function NumOfProgress({numOfFinishedStages}){
                 <Filled/>
                 <Filled/>
                 <Empty/>
-                <Pressable style={{marginLeft:"auto",marginRight:15}}>
-                    <CustomText style={{
-                        color:"#fefefc",
-                        textShadowColor: 'rgba(0, 0, 0, 0.3)',
-                        textShadowOffset: { width: 1, height: 1 },
-                        textShadowRadius: 4,
-                    }} >Skip</CustomText>        
-                </Pressable>
+                <Skip navigation={navigation}/>
             </View>
         );
     }
@@ -119,14 +103,7 @@ function NumOfProgress({numOfFinishedStages}){
                 <Filled/>
                 <Filled/>
                 <Filled/>
-                <Pressable style={{marginLeft:"auto",marginRight:15}}>
-                    <CustomText style={{
-                        color:"#fefefc",
-                        textShadowColor: 'rgba(0, 0, 0, 0.3)',
-                        textShadowOffset: { width: 1, height: 1 },
-                        textShadowRadius: 4,
-                    }} >Skip</CustomText>        
-                </Pressable>
+                <Skip navigation={navigation}/>
             </View>
         );
 
