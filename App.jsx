@@ -9,6 +9,7 @@ import Home from './pages/home';
 import ProductDetails from './pages/ProductDetails';
 import Search from './pages/Search';
 import GetStarted from './pages/GetStarted';
+import Login from './pages/Login';
 
 const Stack = createNativeStackNavigator();
 //this component is the entrance to the app and it is run in index.js
@@ -41,6 +42,7 @@ export default function App() {
         <Stack.Screen name="ProductDetails" component={ProductDetails} />
         <Stack.Screen name="Search" component={Search}/>
         <Stack.Screen name="GetStarted" component={GetStarted}/>
+        <Stack.Screen name="Login" component={Login}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
