@@ -5,11 +5,13 @@ import Desc from '../components/product_details/Desc';
 import ProductFooter from '../components/product_details/ProductFooter';
 import Accordion from '../components/Accordion';
 import CustomText from '../components/customText';
+import Colors from '../components/product_details/Colors';
 export default function ProductDetails({navigation}) {
   return (
     <View style={{ flex: 1 }}>
      <ScrollView contentContainerStyle={{ paddingBottom: 80 }} style={{ flex: 1 }}>
           <Images navigation={navigation}/>
+          <Colors/>
           <Desc 
             productTitle={'Deluxe Adjustable Poolside Lounge Chairwith Cushions and UV Protection'}
             productCat={'Seating and Lounge Furniture'}
@@ -20,9 +22,9 @@ export default function ProductDetails({navigation}) {
               `
             }
           />
-          <Accordion />
-          <Accordion />
-          <Accordion />
+          <Accordion title={'Materials'}/>
+          <Accordion title={'Specifications'}/>
+          <Accordion title={'Reviews'} />
           <CustomText style={{marginLeft:12,fontWeight:'700',marginTop:10}}>Similar products</CustomText>  
       </ScrollView>
     <ProductFooter productPriceDec={349} productPriceFloat={'.00'}/>
