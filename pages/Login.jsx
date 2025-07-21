@@ -1,9 +1,32 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import { View, TextInput, Pressable, StyleSheet, Dimensions } from 'react-native';
 import CustomText from '../components/customText';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebaseConfig"; 
 
 export default function Login({ navigation }) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = async () => {
+    if (!email || !password) {
+      Alert.alert("Missing fields", "Please enter both email and password.");
+      return;
+    }
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log('User logged in:', userCredential.user);
+      navigation.navigate('MyNavBar')
+      // You can now redirect, e.g.
+      // navigation.navigate('Home');
+    } catch (error) {
+      console.error("Login error:", error.message);
+      Alert.alert("Login failed", error.message);
+    }
+  };
+
   return (
     <View style={styles.containerLogin}>
       <View style={{marginTop:30}}>
@@ -18,22 +41,26 @@ export default function Login({ navigation }) {
           keyboardType="email-address"
           autoCapitalize="none"
           style={styles.formLoggin}
+          value={email}
+          onChangeText={setEmail}
         />
         <TextInput
           placeholder="password"
           secureTextEntry
           style={styles.formLoggin}
+          value={password}
+          onChangeText={setPassword}
         />
         <Pressable onPress={() => console.log('Forgot password')}>
           <CustomText style={styles.forgotText}>Forgot password?</CustomText>
         </Pressable>
         <View style={{gap:10}}>
-            <Pressable
-        style={styles.getLoggedButton}
-        onPress={() => console.log('logged in')}
-      >
-        <CustomText style={styles.getStartedText}>Login</CustomText>
-      </Pressable>
+          <Pressable
+            style={styles.getLoggedButton}
+            onPress={handleLogin}
+          >
+            <CustomText style={styles.getStartedText}>Login</CustomText>
+          </Pressable>
 
       <View style={styles.registerContainer}>
         <CustomText style={styles.registerPrompt}>

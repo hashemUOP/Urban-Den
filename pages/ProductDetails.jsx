@@ -1,6 +1,6 @@
 // ProductDetails.js
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, Button, TouchableOpacity } from 'react-native';
 import Images from '../components/product_details/Images';
 import Desc from '../components/product_details/Desc';
 import ProductFooter from '../components/product_details/ProductFooter';
@@ -69,9 +69,17 @@ export default function ProductDetails({ route, navigation }) {
               </CustomText>
             ))
           ) : (
-            <CustomText style={{ padding: 12 }}>
-              Be the first to review this product!
-            </CustomText>
+            <View>
+              <CustomText style={{ padding: 12 }}>
+                Be the first to review this product!
+              </CustomText> 
+              <TouchableOpacity style={{backgroundColor:'#ab7e42',justifyContent:"center",alignItems:"center",width:100,alignSelf:"center",borderRadius:5}}>
+                <CustomText style={{color:"white",fontSize:12}}>
+                  Comment
+                </CustomText>
+              </TouchableOpacity>
+            </View>
+            
           )}
         </Accordion>
       </ScrollView>
