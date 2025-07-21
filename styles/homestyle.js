@@ -183,6 +183,8 @@ heart: {
   justifyContent: 'center',
   borderRadius: 15,
   paddingBottom: 3,
+  position:"absolute",
+  right:10
 },
   footerContainer:{
     width:screemWidth,

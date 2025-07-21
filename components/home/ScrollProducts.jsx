@@ -1,71 +1,101 @@
-import { View, Text,ScrollView, TouchableOpacity, Pressable } from 'react-native';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { View, Text, FlatList, Image, Pressable, TouchableOpacity, ActivityIndicator } from 'react-native';
 import styles from "../../styles/homestyle";
-import { FlatList,Image } from 'react-native';
 import CustomText from '../customText';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import Octicons from '@expo/vector-icons/Octicons';
-import EvilIcons from '@expo/vector-icons/EvilIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import EvilIcons from '@expo/vector-icons/EvilIcons';
 
 
-export default function ScrollProducts({navigation,isForSearch}) {
-  const data = Array.from({ length: 50 }, (_, i) => `Item ${i + 1}`);
 
-  const renderItem = ({ item,isForSearch }) => (
-    <ProductCard 
-      imgSrc={require('../../assets/images/home/SillaChiaraArmsND.png')}
-      ProductDesc={'Deluxe Adjustable Poolside Lounge Chairwith Cushions and UV Protection'}
-      ProductMaterial={'Wood, Sponge, Woven Canvas'}
-      ProductPriceDec={'$340'}
-      ProductPriceFloat={'.00'}
+export default function ScrollProducts({ navigation, isForSearch ,selectedCategory}) {
+
+  const API_URL = 'http://192.168.1.101:8000/api/products/?category=' + selectedCategory;
+  
+  const [products, setProducts] = useState([]); //default empty array of products from models
+  const [loading, setLoading] = useState(true); // true until .finally(() => setLoading(false)); in useEffect is false
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then(res => res.json())
+      .then(data => setProducts(data))
+      .catch(err => console.error('Failed to fetch products:', err))
+      .finally(() => setLoading(false));
+  }, [selectedCategory]);{/* re render page each time selectedCategory is changed */}
+
+
+  const renderItem = ({ item }) => ( //item is the data of each indivisual product
+    <ProductCard
+      product={item}         
       navigation={navigation}
     />
   );
 
+  if (loading) {
+    return <ActivityIndicator size="large" style={{ flex: 1 }} />;
+  }
+
   return (
     <>
-    {
-      isForSearch && 
-      <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-        <CustomText style={{marginLeft:18,fontWeight:'700',fontSize:18}}>150 result</CustomText>
-        <MaterialIcons name="tune" size={24} color="black" style={{marginRight:12}}/>  
-      </View>    
-    }
-    <FlatList
-      data={data}
-      keyExtractor={(item, index) => index.toString()}
-      renderItem={renderItem}
-      contentContainerStyle={styles.scrollContainer}
-    />
-    
+      {isForSearch && (
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <CustomText style={{ marginLeft: 18, fontWeight: '700', fontSize: 18 }}>
+            {products.length} result{products.length !== 1 ? 's' : ''}
+          </CustomText>
+          <MaterialIcons name="tune" size={24} color="black" style={{ marginRight: 12 }} />
+        </View>
+      )}
+
+      <FlatList
+        data={products} //go to line 14 which fills array of products from GET
+        keyExtractor={item => item.id.toString()}
+        renderItem={renderItem}
+        contentContainerStyle={styles.scrollContainer}
+      />
     </>
-    
   );
 }
 
-function ProductCard({ imgSrc, ProductDesc, ProductMaterial, ProductPriceDec, ProductPriceFloat, navigation}) {
+function ProductCard({ product, navigation }) {
+  const { id, img1, name, materials, price, isHot , description  } = product;
+
+  // split price into integer and decimal parts
+  const intPrice = Math.floor(price);
+  const decPrice = (`${price}`).split('.')[1] || '00';
+
   return (
-    <Pressable onPress={()=>navigation.navigate('ProductDetails')}>
+    <Pressable onPress={() => navigation.navigate('ProductDetails', { id })}>
       <View style={styles.card}>
-        <Image source={imgSrc} style={styles.cardImage} />
-        
+        <Image source={{ uri: img1 }} style={styles.cardImage} />
+
         <View style={[styles.overlayRow, { top: 8 }]}>
-          <TouchableOpacity style={styles.badge}>
-            <CustomText style={{ fontSize: 11, color: "white" }}>🔥 Hot Product</CustomText>
-          </TouchableOpacity>
+          {isHot && (
+            <TouchableOpacity style={styles.badge}>
+              <CustomText style={{ fontSize: 11, color: "white" }}>
+                🔥 Hot Product
+              </CustomText>
+            </TouchableOpacity>
+          )}
           <TouchableOpacity style={styles.heart}>
             <EvilIcons name="heart" size={28} color="black" />
           </TouchableOpacity>
         </View>
 
-        <View style={[styles.overlayBottom]}>
-          <View style={{flexDirection:"column"}}>
-            <CustomText numberOfLines={2} ellipsizeMode="tail">{ProductDesc}</CustomText> 
-            <View style={{flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
-              <CustomText style={{fontSize:10}} numberOfLines={1} ellipsizeMode="tail">{ProductMaterial}</CustomText> 
-              <CustomText style={{fontWeight:"700",fontSize:15}}>{ProductPriceDec}<CustomText style={{fontSize:10}}>{ProductPriceFloat}</CustomText></CustomText> 
-            </View> 
+        <View style={styles.overlayBottom}>
+          <View style={{ flexDirection: "column" }}>
+            <CustomText numberOfLines={2} ellipsizeMode="tail">
+              {description}
+            </CustomText>
+            <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+              <CustomText style={{ fontSize: 10 }} numberOfLines={1} ellipsizeMode="tail">
+                {materials}
+              </CustomText>
+              <CustomText style={{ fontWeight: "700", fontSize: 15 }}>
+                ${intPrice}
+                <CustomText style={{ fontSize: 10 }}>
+                  .{decPrice}
+                </CustomText>
+              </CustomText>
+            </View>
           </View>
         </View>
       </View>

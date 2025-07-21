@@ -21,7 +21,7 @@ export default function Colors() {
               style={[
                 styles.colorBox,
                 {
-                  borderColor: isSelected ? 'grey' : 'transparent',
+                  borderColor: isSelected ? '#a38c6eff' : 'transparent',
                   borderWidth: isSelected ? 3 : 1,
                 },
               ]}
