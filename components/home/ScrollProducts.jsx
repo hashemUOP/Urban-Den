@@ -47,7 +47,7 @@ export default function ScrollProducts({ navigation, isForSearch ,selectedCatego
 
       <FlatList
         data={products} //go to line 14 which fills array of products from GET
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={item => item.product_id.toString()}
         renderItem={renderItem}
         contentContainerStyle={styles.scrollContainer}
       />
@@ -56,14 +56,15 @@ export default function ScrollProducts({ navigation, isForSearch ,selectedCatego
 }
 
 function ProductCard({ product, navigation }) {
-  const { id, img1, name, materials, price, isHot , description  } = product;
+  // this code takes args data "product" from the navigate.navigation() and then stores it to the navigated compenent 
+  const {img1, name, materials, price, isHot , description  } = product;
 
   // split price into integer and decimal parts
   const intPrice = Math.floor(price);
   const decPrice = (`${price}`).split('.')[1] || '00';
 
   return (
-    <Pressable onPress={() => navigation.navigate('ProductDetails', { id })}>
+    <Pressable onPress={() => navigation.navigate('ProductDetails',{ product})}>
       <View style={styles.card}>
         <Image source={{ uri: img1 }} style={styles.cardImage} />
 
