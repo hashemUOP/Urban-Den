@@ -4,12 +4,13 @@ import styles from "../../styles/homestyle";
 import CustomText from '../customText';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import EvilIcons from '@expo/vector-icons/EvilIcons';
+import { ipAddress } from '../DynamicIP';
 
 
 
 export default function ScrollProducts({ navigation, isForSearch ,selectedCategory}) {
 
-  const API_URL = 'http://192.168.1.101:8000/api/products/?category=' + selectedCategory;
+  const API_URL = 'http://'+ipAddress+':8000/api/products/?category=' + selectedCategory;
   
   const [products, setProducts] = useState([]); //default empty array of products from models
   const [loading, setLoading] = useState(true); // true until .finally(() => setLoading(false)); in useEffect is false

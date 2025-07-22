@@ -92,3 +92,42 @@ export default function ProductDetails({ route, navigation }) {
   );
 }
 
+async function fetchReviews(product_id) {
+  try{
+    const [products, setProducts] = useState([]); //default empty array of reviews from models
+    const [loading, setLoading] = useState(true); // true until .finally(() => setLoading(false)); in useEffect is false
+      useEffect(() => {
+        fetch('http://'+ipAddress+':8000/api/reviews/?product_id'+product_id)
+          .then(res => res.json())
+          .then(data => setProducts(data))
+          .catch(err => console.error('Failed to fetch reviews:', err))
+          .finally(() => setLoading(false));
+      }, [selectedCategory]);{/* re render page each time selectedCategory is changed */}
+  }catch(error){
+    Alert.alert("error occured: "+error);
+  }
+}
+async function submitReview(title,user_id,content,product_id,numOfStars) {
+  try{
+    const req = await fetch(
+      'http://'+ipAddress+':8000/api/reviews/create',
+      {
+        method:"POST",
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify({ // field_name_in_models.py : "jsx var"
+          review_title: title,
+          review_content: content,
+          review_rating: numOfStars,
+          firestore_user_uid: user_id,
+          product_id: product_id
+        })
+      }    
+    )
+    Alert.alert('Review added successfully');
+  }catch(error){
+    Alert.alert("error occured: "+error)
+  }
+  
+}
