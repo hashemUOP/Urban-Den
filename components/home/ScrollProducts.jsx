@@ -10,7 +10,7 @@ import { ipAddress } from '../DynamicIP';
 
 export default function ScrollProducts({ navigation, isForSearch ,selectedCategory}) {
 
-  const API_URL = 'http://'+ipAddress+':8000/api/products/?category=' + selectedCategory;
+  const API_URL = 'http://'+ ipAddress +':8000/api/products/?category=' + selectedCategory;
   
   const [products, setProducts] = useState([]); //default empty array of products from models
   const [loading, setLoading] = useState(true); // true until .finally(() => setLoading(false)); in useEffect is false

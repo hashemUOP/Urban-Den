@@ -15,6 +15,7 @@ import Favorite       from './pages/Favorite';
 import Cart           from './pages/Cart';
 import Profile        from './pages/Profile';
 import MyNavBar       from './pages/MyNavBar';
+import Review         from './pages/Review';
 
 const Stack = createNativeStackNavigator();
 
@@ -61,6 +62,7 @@ export default function App() {
             <Stack.Screen name="Favorite"       component={Favorite} />
             <Stack.Screen name="Cart"           component={Cart} />
             <Stack.Screen name="Profile"        component={Profile} />
+            <Stack.Screen name="Review"         component={Review} />
           </>
         ) : (
           // user not signed in: let him start at GetStarted

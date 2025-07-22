@@ -65,6 +65,54 @@ export default styles = StyleSheet.create(
             alignItems:"center",
             borderRadius:15,
             marginRight:12,
-        }
+        },
+        commentButton:{
+            backgroundColor:'#ab7e42',
+            justifyContent:"center",
+            alignItems:"center",
+            width:100,
+            alignSelf:"center",
+            borderRadius:5
+        },
+        containerModal: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+        openButton: {
+            backgroundColor: '#f5f5f5',
+            padding: 12,
+            borderWidth: 1,
+            borderColor: '#ccc',
+            borderRadius: 6,
+            overflow: 'hidden',
+            marginBottom: 10,
+            alignSelf: 'center',        
+            width: '95%',               
+        },
+        openText: { 
+            color:"black", 
+            fontSize: 16,
+            fontize: 16,
+            fontWeight: 'bold',
+        },
+
+        backdrop: {
+            flex: 1,
+            backgroundColor: 'rgba(0,0,0,0.5)', 
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+        modalView: {
+            width: '80%',
+            backgroundColor: 'white',
+            borderRadius: 8,
+            padding: 20,
+            alignItems: 'center',
+            elevation: 5,
+        },
+        modalText: { fontSize: 18, marginBottom: 12 },
+        closeButton: {
+            backgroundColor: '#E53935',
+            padding: 10,
+            borderRadius: 4,
+        },
+        closeText: { color: 'white' },
     }
 );
