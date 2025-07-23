@@ -7,6 +7,7 @@ import Accordion from '../components/Accordion';
 import CustomText from '../components/customText';
 import Colors from '../components/product_details/Colors';
 import {ipAddress} from '../components/DynamicIP';
+import RecommendedProducts from '../components/product_details/RecommendedProducts';
 export default function ProductDetails({ route, navigation }) {
   // pull the whole product object out of params
   // this code takes args data from the navigate.navigation() and then transfer it to the navigated compenent
@@ -96,9 +97,8 @@ export default function ProductDetails({ route, navigation }) {
           </SafeAreaView>
         </View>
         
-        <View style={{marginTop:20}}>
-          <CustomText style={{marginLeft:10,fontSize:16}}>Related Products</CustomText>
-        </View>
+        {/* recommended products */}
+        <RecommendedProducts/>
         
 
       </ScrollView>

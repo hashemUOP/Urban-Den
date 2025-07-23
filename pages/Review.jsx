@@ -99,6 +99,9 @@ export default function Review({ navigation, reviewsArray = [] }) {
               value={reviewText}
               onChangeText={setReviewText}
             />
+            <View style={{alignSelf:"center",marginVertical:20}}>
+              <Stars numOfStars={4.5}/>  
+            </View>
             <TouchableOpacity
               style={styles.submitButton}
               onPress={() => onSubmitReview(reviewText)}
@@ -111,6 +114,7 @@ export default function Review({ navigation, reviewsArray = [] }) {
     </SafeAreaView>
   );
 }
+
 
 async function submitReview(title,user_id,content,product_id,numOfStars) {
   try{
