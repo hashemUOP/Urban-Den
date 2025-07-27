@@ -1,4 +1,4 @@
-import { View, Image, StyleSheet, Dimensions, Pressable } from 'react-native';
+import { View, Image, StyleSheet, Dimensions, Pressable, TouchableOpacity, TouchableHighlight } from 'react-native';
 import React from 'react';
 import ProgressBar from '../components/ProgressBar';
 import CustomText from '../components/customText';
@@ -25,20 +25,22 @@ export default function GetStarted({ navigation }) {
       <View style={styles.buttonsContainer}>
         {/* Frosted glass blur behind the button */}
         <View >
-          <Pressable
+          <TouchableHighlight
+            underlayColor="#ca9d61ff"
             style={styles.loginButton}
-            onPress={() => navigation.navigate('Login')}
+            onPress={() => navigation.navigate("Login")}
           >
             <CustomText style={styles.loginText}>Login</CustomText>
-          </Pressable>
+          </TouchableHighlight>
         </View>
 
-        <Pressable
+        <TouchableOpacity
+          activeOpacity={0.8}
           style={styles.getStartedButton}
-          onPress={() => navigation.navigate('GetStarted')}
+          onPress={() => console.log('get started')}
         >
           <CustomText style={styles.getStartedText}>Get started</CustomText>
-        </Pressable>
+        </TouchableOpacity>
 
         <View style={styles.registerContainer}>
           <CustomText style={styles.registerPrompt}>
