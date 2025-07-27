@@ -1,30 +1,30 @@
-import React ,{useState} from 'react';
-import { View, TextInput, Pressable, StyleSheet, Dimensions } from 'react-native';
+import React ,{useState,useContext} from 'react';
+import { View, TextInput, Pressable, StyleSheet, Dimensions, TouchableOpacity } from 'react-native';
 import CustomText from '../components/customText';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebaseConfig"; 
+import { ipAddress } from '../components/DynamicIP';
+import { ActivityIndicator,Alert } from 'react-native';
+//for old firebase login via email/pass
+// import { signInWithEmailAndPassword } from "firebase/auth";
+// import { auth } from "../firebaseConfig"; 
+import { AuthContext } from '../hooks/AuthContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
 
 export default function Login({ navigation }) {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+
+
+  const { login } = useContext(AuthContext);
 
   const handleLogin = async () => {
-    if (!email || !password) {
-      Alert.alert("Missing fields", "Please enter both email and password.");
-      return;
-    }
-
-    try {
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      console.log('User logged in:', userCredential.user);
-      navigation.navigate('MyNavBar')
-      // You can now redirect, e.g.
-      // navigation.navigate('Home');
-    } catch (error) {
-      console.error("Login error:", error.message);
-      Alert.alert("Login failed", error.message);
-    }
+    {/* for login logic go to hooks/AuthContext*/}
+    setIsLoading(true);
+    await login(username, password, navigation);
+    setIsLoading(false);
   };
 
   return (
@@ -37,12 +37,11 @@ export default function Login({ navigation }) {
         </View>  
       <View style={styles.formColLog}>
         <TextInput
-          placeholder="email"
-          keyboardType="email-address"
+          placeholder="username"
           autoCapitalize="none"
           style={styles.formLoggin}
-          value={email}
-          onChangeText={setEmail}
+          value={username}
+          onChangeText={setUsername}
         />
         <TextInput
           placeholder="password"
@@ -55,12 +54,15 @@ export default function Login({ navigation }) {
           <CustomText style={styles.forgotText}>Forgot password?</CustomText>
         </Pressable>
         <View style={{gap:10}}>
-          <Pressable
-            style={styles.getLoggedButton}
-            onPress={handleLogin}
-          >
-            <CustomText style={styles.getStartedText}>Login</CustomText>
-          </Pressable>
+
+          {/* disable button until loading finish and show loading circular indicator */}
+          <TouchableOpacity style={styles.getLoggedButton} onPress={()=>handleLogin()} disabled={isLoading}>
+              {isLoading ? (
+                <ActivityIndicator size="small" color="#fff" />
+              ) : (
+                <CustomText style={styles.getStartedText}>Login</CustomText>
+              )}
+          </TouchableOpacity>
 
       <View style={styles.registerContainer}>
         <CustomText style={styles.registerPrompt}>

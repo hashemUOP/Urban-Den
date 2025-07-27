@@ -2,21 +2,14 @@ import { View, Text, StyleSheet, Dimensions, FlatList, ScrollView, Image, Pressa
 import React from 'react'
 import CustomText from '../components/customText'
 import Stars from '../components/product_details/Stars'
-import Feather from '@expo/vector-icons/Feather';
-
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 export default function Favorite({navigation}) {
   return (
     <View style={styles.container}>
       <CustomText style={styles.textTitle}>Favorites</CustomText>
       <ScrollView style={{marginTop:25}} contentContainerStyle={{ paddingBottom: 50,paddingTop:10}}>
         <ListItem navigation={navigation}/>
-        <ListItem navigation={navigation}/>
-        <ListItem navigation={navigation}/>
-        <ListItem navigation={navigation}/>
-        <ListItem navigation={navigation}/>
-        <ListItem navigation={navigation}/>
-        <ListItem navigation={navigation}/>
-        <ListItem navigation={navigation}/>
+        
       </ScrollView>
     </View>
   )
@@ -32,7 +25,7 @@ function ListItem({navigation,imageSrc,title,cat,stars}){
       <Stars numOfStars={4.5}/>  
     </View>
     <CustomText style={{fontSize:11,width:"70%",top:15,left:100}}>Seating and Lounge Furniture</CustomText>
-    <Feather name="heart" size={24} color="black" style={{left:"90%",bottom:"60%"}} />
+    <FontAwesome name="heart" size={24} color="rgba(156, 52, 52, 1)"  style={{left:"90%",bottom:"60%"}}/>
   </View>
   </Pressable>
      

@@ -14,8 +14,8 @@ export default function Header() {
                         style={styles.image}
                     />
                     <View style={styles.col1}>
-                        <CustomText style={styles.text1}>Hi UsersFirstname! 👋</CustomText>
-                        <CustomText style={styles.text2}>Full USername Here</CustomText>
+                        <CustomText style={styles.text1}>Hi ! 👋</CustomText>
+                        <CustomText style={styles.text2}>hashemsughaier@gmail.com</CustomText>
                     </View>    
                 </View>
                 <View style={{flexDirection:"row"}}>

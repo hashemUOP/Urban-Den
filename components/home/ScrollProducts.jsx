@@ -32,7 +32,7 @@ export default function ScrollProducts({ navigation, isForSearch ,selectedCatego
   );
 
   if (loading) {
-    return <ActivityIndicator size="large" style={{ flex: 1 }} />;
+    return <ActivityIndicator size="large" style={{ flex: 1 ,color:"black" }} />;
   }
 
   return (

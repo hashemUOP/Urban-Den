@@ -5,10 +5,13 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import CustomText from '../components/customText';
 import Stars from '../components/product_details/Stars';
 import StatisticsBar from '../components/product_details/StatisticsBar';
+import StarsReview from '../components/product_details/StarsReview';
 
 export default function Review({ navigation, reviewsArray = [] }) {
   const [isVisible, setIsVisible] = useState(false);
   const [reviewText, setReviewText] = useState('');
+  const [selectedRating, setSelectedRating] = useState(0);
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -100,7 +103,7 @@ export default function Review({ navigation, reviewsArray = [] }) {
               onChangeText={setReviewText}
             />
             <View style={{alignSelf:"center",marginVertical:20}}>
-              <Stars numOfStars={4.5}/>  
+              <StarsReview onRatingSelected={(rating) => setSelectedRating(rating)} />
             </View>
             <TouchableOpacity
               style={styles.submitButton}

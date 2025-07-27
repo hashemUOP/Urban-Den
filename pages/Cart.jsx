@@ -12,13 +12,7 @@ export default function Cart({navigation}) {
       <CustomText style={styles.textTitle}>Cart</CustomText>
       <ScrollView style={{marginTop:25}} contentContainerStyle={{ paddingBottom: 50,paddingTop:10}}>
         <ListItem navigation={navigation}/>
-        <ListItem navigation={navigation}/>
-        <ListItem navigation={navigation}/>
-        <ListItem navigation={navigation}/>
-        <ListItem navigation={navigation}/>
-        <ListItem navigation={navigation}/>
-        <ListItem navigation={navigation}/>
-        <ListItem navigation={navigation}/>
+        
       </ScrollView>
     </View>
   )
