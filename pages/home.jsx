@@ -10,7 +10,7 @@ import styles from '../styles/homestyle';
 
 function Home({navigation}){
     {/* menu bar states */}
-    const items = ["Stools","Lamp", "Table", "Chair", "Sofa"];
+    const items = ["Table","Lamp", "Stools", "Chair", "Sofa"];
     const [selectedItem, updateSelectedItem] = useState(0);
 
     return(

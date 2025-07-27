@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, TextInput, Pressable, StyleSheet, Dimensions, Alert } from 'react-native';
 import CustomText from '../components/customText';
+import { ipAddress } from '../components/DynamicIP';
+
 
 export default function Register({ navigation }) {
   const [firstName, setFirstName] = useState('');
@@ -17,7 +19,7 @@ export default function Register({ navigation }) {
     }
 
     try {
-      const response = await fetch('http://192.168.0.2:8000/api/register/', { //note this my device ip not the localhost since Django and native projects arent in the same localhost but on the same device (mine)
+      const response = await fetch('http://'+ipAddress+':8000/api/signup/register/', { 
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
