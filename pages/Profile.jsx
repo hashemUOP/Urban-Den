@@ -1,13 +1,5 @@
-import React, { useContext } from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  Pressable,
-  Alert,
-} from 'react-native';
+import React, { useContext,useEffect } from 'react';
+import {SafeAreaView,View,Text,Image,StyleSheet,Pressable,Alert,ActivityIndicator} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CustomText from '../components/customText';
 import HorizontalDivider from '../components/HorizantalDivider';
@@ -19,8 +11,14 @@ import { AuthContext } from '../hooks/AuthContext';
 
 export default function Profile({navigation}) {
 
-  const { logout } = useContext(AuthContext);
-
+  const { logout, userData, userDataFetch } = useContext(AuthContext);
+  
+  // user data fetch logic in AuthContext 
+  useEffect(() => {
+    userDataFetch(); 
+  }, []);
+  
+  // user logout logic in AuthContext 
   const handleLogout = async () => {
     try {
       await logout(); // this will trigger App.jsx (go re read the hooks/AuthContext file) to render guest stack
@@ -32,14 +30,23 @@ export default function Profile({navigation}) {
     }
   };
 
+  //without this null error will be triggered
+  if (!userData) {
+      return (
+          <SafeAreaView style={styles.container}>
+              <ActivityIndicator size="large" color="#ab7e42" />
+          </SafeAreaView>
+      );
+  } 
+
   return (
     <SafeAreaView style={styles.container}>
       <Image
         source={require('../assets/images/home/user_profile.jpg')}
         style={styles.avatar}
       />
-      <Text style={styles.username}>Username</Text>
-      <CustomText style={styles.email}>hashemsughaier@gmail.com</CustomText>
+      <Text style={styles.username}>{userData.username}</Text>
+      <CustomText style={styles.email}>{userData.email}</CustomText>
       <Pressable style={styles.editButton}>
         <CustomText style={styles.editButtonText}>Edit profile</CustomText>
       </Pressable>

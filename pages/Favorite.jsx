@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Dimensions, FlatList, ScrollView, Image, Pressable } from 'react-native'
+import { View, Text, StyleSheet, Dimensions, FlatList, ScrollView, Image, Pressable, TouchableOpacity } from 'react-native'
 import React from 'react'
 import CustomText from '../components/customText'
 import Stars from '../components/product_details/Stars'
@@ -22,10 +22,14 @@ function ListItem({navigation,imageSrc,title,cat,stars}){
     <Image source={require('../assets/images/home/SillaChiaraArmsND.png')} style={styles.imageItem}/>
     <CustomText style={{fontSize:12,width:"60%",top:15,left:100}} numberOfLines={2} ellipsizeMode="tail">Deluxe Adjustable Poolside Lounge Chairwith Cushions and UV Protection</CustomText>
     <View style={{left:100,top:15}}>
-      <Stars numOfStars={4.5}/>  
+      <CustomText style={{fontWeight:"700"}}>$95.99</CustomText>
     </View>
     <CustomText style={{fontSize:11,width:"70%",top:15,left:100}}>Seating and Lounge Furniture</CustomText>
-    <FontAwesome name="heart" size={24} color="rgba(156, 52, 52, 1)"  style={{left:"90%",bottom:"60%"}}/>
+
+    <TouchableOpacity style={{left:"90%",bottom:"60%"}}>
+      <FontAwesome name="heart" size={24} color="rgba(156, 52, 52, 1)"  />
+    </TouchableOpacity>
+    
   </View>
   </Pressable>
      
